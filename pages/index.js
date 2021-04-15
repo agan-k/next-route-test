@@ -70,7 +70,7 @@ export default function Home(props) {
    
    return (
       <Layout>
-         <h1>last commit -m "import global css and wrap blog and post with layout and modal"</h1>
+         <h1>last commit -m "enable links in blog/index and post"</h1>
          <div className={style.container}>
             
             <main className={style.main}>

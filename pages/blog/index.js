@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Head from 'next/head'
 import Link from "next/link"
 
 import Prismic from "prismic-javascript"
@@ -47,14 +46,14 @@ export default function Blog(props) {
                {RichText.render(post.data.content_body)}
          </div> :
          <div className={style.last_post_container} key={post.id}>
-            {/* <h3>{formatPrismicDate(post.data.date)}</h3> */}
+            <h3>{formatPrismicDate(post.data.date)}</h3>
             <img src={post.data.img.url} />
             {RichText.render(post.data.content_body)}
          </div>
          )
    const posts = blog.map(post => 
       <div className={style.post_container} key={post.id}>
-         {/* <p>{formatPrismicDate(post.data.date)}</p> */}
+         <p>{formatPrismicDate(post.data.date)}</p>
          <div className={style.post_link}>
             <Link href="blog/[id]" as={`/blog/${post.uid}`}>
                <a>
