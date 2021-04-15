@@ -21,7 +21,7 @@ export default function Home(props) {
    console.log(content)    
    return (
       <div className={style.container}>
-         <h1>last commit -m "add Date.js to the root"</h1>
+         <h1>last commit -m "add components"</h1>
          <Link href="/blog">
             <h1>blog</h1>
          </Link>
