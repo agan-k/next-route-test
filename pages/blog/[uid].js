@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import Link from "next/link"
 
+import Prismic from "prismic-javascript"
 import { client } from "../../prismic-configuration"
-import { Prismic, RichText, Date } from "prismic-reactjs"
+import { RichText, Date } from "prismic-reactjs"
 
 import Layout from "../../components/layout"
 import Modal from "../../components/modal"
@@ -14,9 +15,9 @@ export default function Post({ data }) {
 
    const date = Date(data.date);
    const formattedDate = Intl.DateTimeFormat('en-US',{
-     year: 'numeric',
-     month: 'short',
-     day: '2-digit' }).format(date);
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit' }).format(date);
    
 
    return (
@@ -30,7 +31,7 @@ export default function Post({ data }) {
                   <main>{RichText.render(data.content_body)}</main>
                </article> :
                <article>
-                  <h3>{formattedDate}</h3>
+                  <h3>{dateString}</h3>
                   <img src={data.img.url} style={{ maxHeight: "15rem" }} />
                   <main>{RichText.render(data.content_body)}</main>
                </article>

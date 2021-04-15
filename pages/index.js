@@ -69,7 +69,7 @@ export default function Home(props) {
    
    return (
       <Layout>
-         <h1>last commit -m "use build-in date method"</h1>
+         <h1>last commit -m "use build-in date method, import Date"</h1>
          <div className={style.container}>
             
             <main className={style.main}>
