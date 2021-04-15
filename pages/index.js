@@ -18,7 +18,7 @@ export default function Home(props) {
    //       </Link>
    //    </div>
       
-      )
+      // )
    console.log(content)    
    return (
       <Layout>
