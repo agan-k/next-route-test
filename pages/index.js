@@ -40,7 +40,23 @@ export default function Home(props) {
 
    let cards = props.content.results.filter(item => item.data.news_card)
    const news_cards = cards.map((result) =>
-     <div key={result.uid} className={style.card}>
+      
+      result.data.news_card && result.data.content_type == 'video' ?
+         
+         <div key={result.uid} className={style.card}
+            onClick={() => setVideoURL(result.data.video_link[0].text)}
+         >
+            <a>
+               <p className={style.date}>{formatPrismicDate(result.data.date)}</p>
+               <img src={result.data.img.url} onClick={() => setShowModal(true)}/>
+               {RichText.render(result.data.news_card_blurb)}
+               <span className={style.arrow}>&rarr;</span>
+            </a>
+         </div> :
+
+      (result.data.news_card && result.data.content_type !== 'video') ?
+            
+         <div key={result.uid} className={style.card}>
             <Link href={`/${result.data.content_type.substr(0, 5)}/${result.uid}`} >
                <a>
                   <p className={style.date}>{formatPrismicDate(result.data.date)}</p>
@@ -49,12 +65,12 @@ export default function Home(props) {
                   <span className={style.arrow}>&rarr;</span>
                </a>
             </Link>
-         </div>
+         </div> : ''
    ) 
    
    return (
       <Layout>
-         <h1>last commit -m "set state hooks"</h1>
+         <h1>last commit -m "redifine news_cards with video modal option"</h1>
          <div className={style.container}>
             
             <main className={style.main}>
