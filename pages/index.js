@@ -53,7 +53,7 @@ export default function Home(props) {
    return (
       <Layout>
          <div className={style.container}>
-            <h1>last commit -m "render news_cards only"</h1>
+            <h1>last commit -m "add press page"</h1>
             <div className={style.grid}>
                {news_cards}
             </div>

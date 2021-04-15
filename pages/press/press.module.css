@@ -1,0 +1,20 @@
+.container ul h3, .container ul h4 {
+   font-size: 1rem;
+   display: inline-block;
+   margin: .1rem;
+}
+
+.container ul h3 {
+   font-weight: 500;
+}
+.container ul h4  {
+   font-weight: 300;
+   font-style: italic;
+}
+
+.container li {
+   list-style: none;
+}
+.container h4:hover {
+   text-decoration: underline;
+}
