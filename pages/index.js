@@ -10,24 +10,19 @@ import style from './Home.module.css'
 
 export default function Home(props) {
    const content = props.content.results.map(result => result)
+   const test_content =  content.map(item =>
+      <div key={item.data.id}>
+         <Link href={`/${item.uid}`}>
+            <h1>{item.data.date}</h1>
+         </Link>
+      </div>
+      
+      )
    console.log(content)    
    return (
       <div className={style.container}>
          <h1>date</h1>
-         {content.map(item =>
-            <div key={item.data.id}>
-               <Link
-                  // href="/[id]"
-                  href={`/${item.uid}`}
-                  // as={`/${item.uid}`}
-               >
-                  <h1>
-                     {item.data.date}
-                  </h1>
-               </Link>
-            </div>
-            
-            )}
+         {test_content}
           </div>
    )
 }
