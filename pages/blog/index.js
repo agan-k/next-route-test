@@ -7,9 +7,8 @@ import { client } from "../../prismic-configuration"
 import { RichText } from "prismic-reactjs"
 
 import style from './blog.module.css'
-// import formatPrismicDate from '../../formatPrismicDate.js'
-// import Modal from '../../components/modal'
-// import Layout from '../../components/layout'
+import Modal from '../../components/modal'
+import Layout from '../../components/layout'
 
 export default function Blog(props) {
    const [showModal, setShowModal] = useState(false)
@@ -21,14 +20,12 @@ export default function Blog(props) {
       let day;
       let month;
       let year = date.slice(0, 4);
-   
       if (date.charAt(8) == '0') {
          day = date.slice(9, 10);
       }
       else {
          day = date.slice(8, 10);
       }
-      
       if (date.charAt(5) == '0') {
          month = months[date.slice(6, 7) - 1];
       }
@@ -72,7 +69,7 @@ export default function Blog(props) {
    posts.shift()
 
    return (
-      // <Layout>
+      <Layout>
          <div className={showModal ? style['container_blur'] : style['container']}>
             <div className={style.posts}>
                {last_post[0]}
@@ -81,13 +78,13 @@ export default function Blog(props) {
                </div>
             </div>
          </div>
-         // {showModal && (
-         //    <Modal
-         //       blog_video_url={videoURL}
-         //       closeModal={() => setShowModal(false)}
-         //    />
-         // )}
-      // </Layout>
+         {showModal && (
+            <Modal
+               blog_video_url={videoURL}
+               closeModal={() => setShowModal(false)}
+            />
+         )}
+      </Layout>
    )
 }
 
