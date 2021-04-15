@@ -10,7 +10,7 @@ import Modal from "../../components/modal"
 import style from "./post.module.css"
 
 export default function Post({ data }) {
-console.log(data.date)
+console.log(data.img)
    const [showModal, setShowModal] = useState(false)
 
    
@@ -21,12 +21,12 @@ console.log(data.date)
          <Link href="/blog"><h4>&larr; &nbsp;<a>blog home</a></h4></Link>
             {data.video_link.length !== 0 ?
                <article>
-                  <h3>{formatPrismicDate(data.date)}</h3>
+                  {/* <h3>{formatPrismicDate(data.date)}</h3> */}
                   <img onClick={() => setShowModal(true)} src={data.img.url} style={{ maxHeight: "15rem" }} />
                   <main>{RichText.render(data.content_body)}</main>
                </article> :
                <article>
-                  <h3>{formatPrismicDate(data.date)}</h3>
+                  {/* <h3>{formatPrismicDate(data.date)}</h3> */}
                   <img src={data.img.url} style={{ maxHeight: "15rem" }} />
                   <main>{RichText.render(data.content_body)}</main>
                </article>
