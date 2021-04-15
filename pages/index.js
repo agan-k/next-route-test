@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
 
 import Prismic from "prismic-javascript"
@@ -70,7 +69,7 @@ export default function Home(props) {
    
    return (
       <Layout>
-         <h1>last commit -m "enable links in blog/index and post"</h1>
+         <h1>last commit -m "remove formatPrismicDate from blog/[uid]"</h1>
          <div className={style.container}>
             
             <main className={style.main}>
