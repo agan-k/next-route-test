@@ -7,6 +7,7 @@ import { client } from "../prismic-configuration"
 import { RichText } from "prismic-reactjs"
 
 import style from './Home.module.css'
+import Layout from '../components/layout'
 
 export default function Home(props) {
    const content = props.content.results.map(result => result)
@@ -20,14 +21,16 @@ export default function Home(props) {
       )
    console.log(content)    
    return (
-      <div className={style.container}>
-         <h1>last commit -m "add components"</h1>
-         <Link href="/blog">
-            <h1>blog</h1>
-         </Link>
-         <h1>date</h1>
-         {test_content}
-          </div>
+      <Layout>
+         <div className={style.container}>
+            <h1>last commit -m "wrap pages/index with Layout"</h1>
+            <Link href="/blog">
+               <h1>blog</h1>
+            </Link>
+            <h1>date</h1>
+            {test_content}
+         </div>
+      </Layout>
    )
 }
 
