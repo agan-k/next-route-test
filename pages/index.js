@@ -6,15 +6,28 @@ import Prismic from "prismic-javascript"
 import { client } from "../prismic-configuration"
 import { RichText } from "prismic-reactjs"
 
-// import Layout from '../components/layout'
 import style from './Home.module.css'
 
 export default function Home(props) {
-   console.log(props.content.results[0].data.date)    
-
+   const content = props.content.results.map(result => result)
+   console.log(content)    
    return (
-         <div className={style.container}>
-            <h1>{props.content.results[0].data.date}</h1>
+      <div className={style.container}>
+         <h1>date</h1>
+         {content.map(item =>
+            <div key={item.data.id}>
+               <Link
+                  // href="/[id]"
+                  href={`/${item.uid}`}
+                  // as={`/${item.uid}`}
+               >
+                  <h1>
+                     {item.data.date}
+                  </h1>
+               </Link>
+            </div>
+            
+            )}
           </div>
    )
 }
@@ -22,10 +35,7 @@ export default function Home(props) {
 export async function getStaticProps() {
    const content = await client.query(
       Prismic.Predicates.at("document.type", "content"),
-      {
-         orderings: '[my.content.date desc]',
-         pageSize : 100
-      }
+      {pageSize : 100}
    )
    return {
       props: {
