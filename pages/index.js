@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Prismic from "prismic-javascript"
 import { client } from "../prismic-configuration"
 import { RichText } from "prismic-reactjs"
-import formatPrismicDate from './formatPrismicDate.js'
 
 // import Layout from '../components/layout'
 import style from './Home.module.css'
