@@ -11,24 +11,24 @@ import Layout from '../components/layout'
 
 export default function Home(props) {
    const content = props.content.results.map(result => result)
-   const test_content =  content.map(item =>
-      <div key={item.data.id}>
-         <Link href={`/${item.uid}`}>
-            <h1>{item.data.date}</h1>
-         </Link>
-      </div>
+   // const test_content =  content.map(item =>
+   //    <div key={item.data.id}>
+   //       <Link href={`/${item.uid}`}>
+   //          <h1>{item.data.date}</h1>
+   //       </Link>
+   //    </div>
       
       )
    console.log(content)    
    return (
       <Layout>
          <div className={style.container}>
-            <h1>last commit -m "wrap pages/index with Layout"</h1>
+            <h1>last commit -m "remove test_content and add bio page"</h1>
             <Link href="/blog">
                <h1>blog</h1>
             </Link>
             <h1>date</h1>
-            {test_content}
+            {/* {test_content} */}
          </div>
       </Layout>
    )
