@@ -69,7 +69,7 @@ export default function Home(props) {
    
    return (
       <Layout>
-         <h1>last commit -m "remove formatPrismicDate from Post render only"</h1>
+         <h1>last commit -m "change function declaration in Post"</h1>
          <div className={style.container}>
             
             <main className={style.main}>
