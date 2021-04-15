@@ -21,7 +21,7 @@ export default function Home(props) {
    console.log(content)    
    return (
       <div className={style.container}>
-         <h1>last commit -m "remove formatPrismicDate from render (keep in the root)"</h1>
+         <h1>last commit -m "formatPrismicDate inside of the blog page"</h1>
          <Link href="/blog">
             <h1>blog</h1>
          </Link>
