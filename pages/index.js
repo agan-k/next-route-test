@@ -8,6 +8,7 @@ import { RichText } from "prismic-reactjs"
 
 import style from './Home.module.css'
 import Layout from '../components/layout'
+import Modal from '../components/modal'
 
 export default function Home(props) {
 
@@ -52,12 +53,23 @@ export default function Home(props) {
    console.log(content)    
    return (
       <Layout>
+         <h1>last commit -m "import and render Modal"</h1>
          <div className={style.container}>
-            <h1>last commit -m "add press page"</h1>
-            <div className={style.grid}>
-               {news_cards}
-            </div>
-         </div>
+            
+            <main className={style.main}>
+               <img className={style.banner} src={'/images/home_banner.jpg'}/>
+               <div className={style.grid}>
+                  {news_cards}
+                </div>
+   
+               {showModal && (
+                  <Modal
+                     news_card_video_url={videoURL}
+                     closeModal={() => setShowModal(false)}
+                  />
+               )}
+            </main>
+          </div>
       </Layout>
    )
 }
