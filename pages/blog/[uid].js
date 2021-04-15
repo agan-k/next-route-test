@@ -7,7 +7,7 @@ import { RichText } from "prismic-reactjs"
 
 // import Layout from "../../components/layout"
 // import Modal from "../../components/modal"
-// import formatPrismicDate from '../formatPrismicDate.js'
+import formatPrismicDate from '../formatPrismicDate.js'
 import style from "./post.module.css"
 
 export default function Post({ data }) {
@@ -19,12 +19,12 @@ export default function Post({ data }) {
          {/* <Link href="/blog"><h4>&larr; &nbsp;<a>blog home</a></h4></Link> */}
             {data.video_link.length !== 0 ?
                <article>
-                  {/* <h3>{formatPrismicDate(data.date)}</h3> */}
+                  <h3>{formatPrismicDate(data.date)}</h3>
                   <img onClick={() => setShowModal(true)} src={data.img.url} style={{ maxHeight: "15rem" }} />
                   <main>{RichText.render(data.content_body)}</main>
                </article> :
                <article>
-                  {/* <h3>{formatPrismicDate(data.date)}</h3> */}
+                  <h3>{formatPrismicDate(data.date)}</h3>
                   <img src={data.img.url} style={{ maxHeight: "15rem" }} />
                   <main>{RichText.render(data.content_body)}</main>
                </article>

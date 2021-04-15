@@ -7,7 +7,7 @@ import { client } from "../../prismic-configuration"
 import { RichText } from "prismic-reactjs"
 
 import style from './blog.module.css'
-// import formatPrismicDate from '../formatPrismicDate.js'
+import formatPrismicDate from '../formatPrismicDate.js'
 // import Modal from '../../components/modal'
 // import Layout from '../../components/layout'
 
@@ -22,19 +22,19 @@ export default function Blog(props) {
       post.data.video_link.length !== 0 ?
          <div className={style.last_post_container}
             key={post.id} onClick={() => setVideoURL(post.data.video_link[0].text)}>
-            {/* <h3>{formatPrismicDate(post.data.date)}</h3> */}
+            <h3>{formatPrismicDate(post.data.date)}</h3>
             <img src={post.data.img.url} onClick={() => setShowModal(true)} />
                {RichText.render(post.data.content_body)}
          </div> :
          <div className={style.last_post_container} key={post.id}>
-            {/* <h3>{formatPrismicDate(post.data.date)}</h3> */}
+            <h3>{formatPrismicDate(post.data.date)}</h3>
             <img src={post.data.img.url} />
             {RichText.render(post.data.content_body)}
          </div>
          )
    const posts = blog.map(post => 
       <div className={style.post_container} key={post.id}>
-         {/* <p>{formatPrismicDate(post.data.date)}</p> */}
+         <p>{formatPrismicDate(post.data.date)}</p>
          <div className={style.post_link}>
             <Link href="blog/[id]" as={`/blog/${post.uid}`}>
                <a>
