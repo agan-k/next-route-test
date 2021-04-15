@@ -7,7 +7,7 @@ import { client } from "../../prismic-configuration"
 import { RichText } from "prismic-reactjs"
 
 import style from './blog.module.css'
-import formatPrismicDate from '../formatPrismicDate.js'
+import formatPrismicDate from '../../formatPrismicDate.js'
 // import Modal from '../../components/modal'
 // import Layout from '../../components/layout'
 

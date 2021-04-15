@@ -7,7 +7,7 @@ import { RichText } from "prismic-reactjs"
 
 // import Layout from "../../components/layout"
 // import Modal from "../../components/modal"
-import formatPrismicDate from '../formatPrismicDate.js'
+import formatPrismicDate from '../../formatPrismicDate.js'
 import style from "./post.module.css"
 
 export default function Post({ data }) {
