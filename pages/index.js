@@ -12,7 +12,9 @@ import Modal from '../components/modal'
 
 export default function Home(props) {
 
-   const content = props.content.results.map(result => result)
+   const [showModal, setShowModal] = useState(false)
+   const [videoURL, setVideoURL] = useState(null)
+
 
    function formatPrismicDate(date) {
       let months = ["January","February","March","April","May","June","July",
@@ -53,7 +55,7 @@ export default function Home(props) {
    console.log(content)    
    return (
       <Layout>
-         <h1>last commit -m "import and render Modal"</h1>
+         <h1>last commit -m "set state hooks"</h1>
          <div className={style.container}>
             
             <main className={style.main}>
