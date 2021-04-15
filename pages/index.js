@@ -1,65 +1,76 @@
+import React, { useState } from 'react'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import Prismic from "prismic-javascript"
+import { client } from "../prismic-configuration"
+import { RichText } from "prismic-reactjs"
+import formatPrismicDate from './formatPrismicDate.js'
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+// import Layout from '../components/layout'
+import style from './Home.module.css'
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+export default function Home(props) {
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+   const [showModal, setShowModal] = useState(false)
+   const [videoURL, setVideoURL] = useState(null)
+      
+   let cards = props.content.results.filter(item => item.data.news_card)
+   const news_cards = cards.map((result) =>
+      
+      result.data.news_card && result.data.content_type == 'video' ?
+         
+         <div key={result.uid} className={style.card}
+            onClick={() => setVideoURL(result.data.video_link[0].text)}
+         >
+            <a>
+               <p className={style.date}>{formatPrismicDate(result.data.date)}</p>
+               <img src={result.data.img.url} onClick={() => setShowModal(true)}/>
+               {RichText.render(result.data.news_card_blurb)}
+               <span className={style.arrow}>&rarr;</span>
+            </a>
+         </div> :
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+      (result.data.news_card && result.data.content_type !== 'video') ?
+            
+         <div key={result.uid} className={style.card}>
+            {/* <Link href={`/${result.data.content_type.substr(0, 5)}/${result.uid}`} > */}
+               <a>
+                  <p className={style.date}>{formatPrismicDate(result.data.date)}</p>
+                  <img src={result.data.img.url}/>
+                  {RichText.render(result.data.news_card_blurb)}
+                  <span className={style.arrow}>&rarr;</span>
+               </a>
+            {/* </Link> */}
+         </div> : ''
+   )      
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+   return (
+         <div className={style.container}>
+            
+            <main className={style.main}>
+               {/* <img className={style.banner} src={'/images/home_banner.jpg'}/> */}
+               <div className={style.grid}>
+                  {news_cards}
+                </div>
+   
+               
+            </main>
+          </div>
+   )
+}
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+export async function getStaticProps() {
+   const content = await client.query(
+      Prismic.Predicates.at("document.type", "content"),
+      {
+         orderings: '[my.content.date desc]',
+         pageSize : 100
+      }
+   )
+   return {
+      props: {
+         content
+      },
+   }
 }
