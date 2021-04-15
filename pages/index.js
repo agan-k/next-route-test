@@ -51,8 +51,7 @@ export default function Home(props) {
             </Link>
          </div>
    ) 
-  
-   console.log(content)    
+   
    return (
       <Layout>
          <h1>last commit -m "set state hooks"</h1>
