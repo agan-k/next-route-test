@@ -1,0 +1,66 @@
+.container {
+   /* max-width: 900px; */
+   padding: 0 0.5rem;
+   display: flex;
+   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.banner {
+   max-width: 900px;
+}
+.main {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.calendar_container {
+   max-width: 900px;
+   display: flex;
+   justify-content: space-between;
+   padding: 2rem;
+   border: 1px solid rgb(241, 241, 241);
+   /* background: red; */
+}
+.calendar_container h4 {
+   margin: 1rem 0 0 0;
+}
+.calendar_container ul {
+   font-size: .8rem;
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.calendar_container p {
+   margin: .5rem 0;
+}
+.calendar_container main {
+   width: 60%;
+}
+.calendar_container aside {
+   width: 35%;
+   border-left: 1px solid rgb(241, 241, 241);
+}
+   .featured_flyer {
+      width: 80%;
+      display: block;
+      margin: 5rem auto;
+   }
+
+@media (max-width: 600px) {
+   .banner {
+      width: 100%;
+   }
+   .calendar_container {
+      display: initial;
+   }
+   .calendar_container main {
+      width: 100%;
+   }
+   .container aside {
+      display: none;
+   }
+}
