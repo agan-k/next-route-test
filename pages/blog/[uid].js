@@ -31,7 +31,7 @@ export default function Post({ data }) {
                   <main>{RichText.render(data.content_body)}</main>
                </article> :
                <article>
-                  <h3>{dateString}</h3>
+                  <h3>{formattedDate}</h3>
                   <img src={data.img.url} style={{ maxHeight: "15rem" }} />
                   <main>{RichText.render(data.content_body)}</main>
                </article>
