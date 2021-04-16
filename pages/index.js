@@ -69,7 +69,7 @@ export default function Home(props) {
    
    return (
       <Layout>
-         <h1>last commit -m "remove ablum property from BandcampPlayer"</h1>
+         <h1>last commit -m "render albumID as text"</h1>
          <div className={style.container}>
             
             <main className={style.main}>
