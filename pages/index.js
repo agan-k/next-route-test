@@ -69,7 +69,7 @@ export default function Home(props) {
    
    return (
       <Layout>
-         <h1>last commit -m "render albumID as text"</h1>
+         <h1>last commit -m "add pages/links"</h1>
          <div className={style.container}>
             
             <main className={style.main}>
