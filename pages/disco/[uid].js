@@ -24,7 +24,7 @@ export default function Album({data}) {
                {/* {data.bandcamp_id[0].text && ( */}
                   <BandcampPlayer
                      className='audio-player'
-                     album={data.bandcamp_id[0].text}
+                     // album={data.bandcamp_id[0].text}
                      width='40%'
                      height='460px'
                      artwork='none'
