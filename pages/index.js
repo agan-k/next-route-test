@@ -16,8 +16,8 @@ export default function Home(props) {
 
 
    function formatPrismicDate(date) {
-      let months = ["January","February","March","April","May","June","July",
-         "August", "September", "October", "November", "December"];
+      let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul",
+         "Aug", "Sep", "Oct", "Nov", "Dec"];
       let day;
       let month;
       let year = date.slice(0, 4);
@@ -34,7 +34,7 @@ export default function Home(props) {
       else {
          month = months[date.slice(5, 7) -1]
       }
-      return day + '. ' + month + ' ' + year;
+      return month + ' ' + day + ', ' + year;
    }
 
    let cards = props.content.results.filter(item => item.data.news_card)
@@ -69,7 +69,7 @@ export default function Home(props) {
    
    return (
       <Layout>
-         <h1>last commit -m "change order of news_cards to date-descending"</h1>
+         <h1>last commit -m "change date format in news_cards and blog home"</h1>
          <div className={style.container}>
             
             <main className={style.main}>

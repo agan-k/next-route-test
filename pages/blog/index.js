@@ -14,11 +14,12 @@ export default function Blog(props) {
    const [videoURL, setVideoURL] = useState(null)
 
    function formatPrismicDate(date) {
-      let months = ["January","February","March","April","May","June","July",
-         "August", "September", "October", "November", "December"];
+      let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul",
+         "Aug", "Sep", "Oct", "Nov", "Dec"];
       let day;
       let month;
       let year = date.slice(0, 4);
+   
       if (date.charAt(8) == '0') {
          day = date.slice(9, 10);
       }
@@ -31,7 +32,7 @@ export default function Blog(props) {
       else {
          month = months[date.slice(5, 7) -1]
       }
-      return day + '. ' + month + ' ' + year;
+      return month + ' ' + day + ', ' + year;
    }
 
    const blog = props.content.results.filter(result =>
