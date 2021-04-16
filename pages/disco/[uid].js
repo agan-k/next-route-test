@@ -21,9 +21,6 @@ export default function Album({ data }) {
                <div className={style.album_info}>
                   <img src={data.img.url} style={{maxHeight: '10rem'}}/>
                   {RichText.render(data.content_body)}
-                  {RichText.render(data.bandcamp_id)}
-                  {data.bandcamp_id[0].text}
-                  
                </div>
                
                {RichText.asText(data.bandcamp_id) && (
