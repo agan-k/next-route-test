@@ -69,7 +69,7 @@ export default function Home(props) {
    
    return (
       <Layout>
-         <h1>last commit -m "add pages/videos"</h1>
+         <h1>last commit -m "change order of news_cards to date-descending"</h1>
          <div className={style.container}>
             
             <main className={style.main}>
@@ -93,7 +93,10 @@ export default function Home(props) {
 export async function getStaticProps() {
    const content = await client.query(
       Prismic.Predicates.at("document.type", "content"),
-      {pageSize : 100}
+      {
+         orderings: '[my.content.date desc]',
+         pageSize: 100
+      }
    )
    return {
       props: {
