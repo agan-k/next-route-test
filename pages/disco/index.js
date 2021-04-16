@@ -12,7 +12,6 @@ export default function Discography(props) {
    const discography = props.content.results.filter(result =>
       result.data.content_type == 'discography'
       )
-      console.log(discography)
    
    const albums_gallery = discography.map(album => 
       <div key={album.uid} className={style.album_container}>
